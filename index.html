@@ -26,7 +26,7 @@
             <h1 class="text-8xl -ml-2 tracking-tighter font-bold font-[Helvetica_Now_Display]">Abhineet.</h1>
         </div>
         <div class="rightheadings flex gap-3 items-center">
-            <h4 class="font-medium text-xl  tracking-tighter">[01:15 PM]</h4>
+            <h4 class="font-medium text-xl  tracking-tighter">[<span class="timing">01:15 PM</span>]</h4>
             <div class="w-30 h-[1px] bg-black"></div>
             <h3 class="font-bold text-2xl tracking-tight font-['Bradley_Hand_ITC']">Creative Front End Developer</h3>
 
@@ -181,14 +181,17 @@
             <h4 class="font-medium">08 Oct 2025 [08:18 PM]</h4>
         </section>
 
-
-
-
-
-
-
-
-
     </main>
+    <script>
+        function changeTime(){
+            var dt=new Date();
+            var str=dt.getHours()%12 + ":" + dt.getMinutes() + " " + (dt.getHours() >= 12 ? "PM" : "AM");
+            document.querySelector(".timing").textContent=str;
+        }
+        setInterval(function(){
+            changeTime();
+        }, 1000);
+    </script>
+
 </body>
 </html>
